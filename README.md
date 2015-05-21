@@ -1,5 +1,5 @@
 # Strings
-Laravel5 offers a great way to manipulate strings through the Illuminate\Support\Str class and its useful methods. We can manipulate strings with very little code which is awesome. Let's see a fast example for our blog posts:
+Laravel5 offers a great way to manipulate strings through the `Illuminate\Support\Str` class and its useful methods. We can manipulate strings with very little code which is awesome. Let's see a fast example for our blog posts:
 
 	use Illuminate\Support\Str;
 
@@ -35,11 +35,13 @@ Transliterate a UTF-8 value to ASCII.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::ascii('Με λένε Μάριο!')}}
+	$str1 = 'Με λένε Μάριο!';
+	
+	$str2 = Str::ascii($str1);
 	
 **Result:**
 	
-	'Me lene Mario!'
+	$str2 = 'Me lene Mario!';
 	
 **Notes:**
 
@@ -57,11 +59,13 @@ Convert a value to camel case.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::camel('Laravel is really awesome')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::camel($str1);
 	
 **Result:**
 	
-	'laravelIsReallyAwesome'
+	$str2 = 'laravelIsReallyAwesome'
 	
 **Equivalent Helper Function:**
 
@@ -87,41 +91,49 @@ The second parameter named $needles can be a string or an array of strings.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::contains('Laravel is really awesome', 'Laravel')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::contains($str, 'Laravel');
 	
 **Result:**
 	
-	true
+	$result = true;
 	
 **Example 2:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::contains('Laravel is really awesome', ['Laravel', 'is'])}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::contains($str, ['Laravel', 'is']);
 	
 **Result:**
 	
-	true
+	$result = true
 	
 **Example 3:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::contains('Laravel is really awesome', ['laravel', 'is'])}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::contains($str, ['laravel', 'is']);
 	
 **Result:**
 	
-	true
+	$result = true;
 	
 **Example 4:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::contains('Laravel is really awesome', ['laravel', 'his'])}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::contains($str, ['laravel', 'his']);
 	
 **Result:**
 	
-	false
+	$result = false;
 	
 **Equivalent Helper Function:**
 
@@ -147,31 +159,37 @@ The second parameter named $needles can be a string or an array of strings.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::endsWith('Laravel is really awesome', 'awesome')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::endsWith($str, 'awesome');
 	
 **Result:**
 	
-	true
+	$result = true;
 	
 **Example 2:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::endsWith('Laravel is really awesome', 'Awesome')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::endsWith($str, 'Awesome');
 	
 **Result:**
 	
-	false
+	$result = false;
 	
 **Example 3:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::endsWith('Laravel is really awesome', ['Awesome', 'awesome'])}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::endsWith($str, ['Awesome', 'awesome']);
 	
 **Result:**
 	
-	true
+	$result = true;
 	
 **Equivalent Helper Function:**
 
@@ -193,7 +211,9 @@ Cap a string with a single instance of a given value.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::finish('Laravel is really awesome', ' and superb')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::finish($str1, ' and superb');
 	
 **Result:**
 	
@@ -203,11 +223,13 @@ Cap a string with a single instance of a given value.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::finish('http://home/', '/')}}
+	$str1 = 'http://home/';
+	
+	$str2 = Str::finish($str1, '/');
 	
 **Result:**
 	
-	'http://home/'
+	$str2 = 'http://home/';
 	
 **Equivalent Helper Function:**
 
@@ -229,31 +251,37 @@ Determine if a given string matches a given pattern.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::is('Laravel', 'Laravel is really awesome')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::is('Laravel', $str);
 	
 **Result:**
 	
-	false
+	$result = false;
 	
 **Example 2:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::is('Laravel*', 'Laravel is really awesome')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::is('Laravel*', $str);
 	
 **Result:**
 	
-	true
+	$result = true;
 	
 **Example 3:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::is('*is*', 'Laravel is really awesome')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::is('*is*', $str);
 	
 **Result:**
 	
-	true
+	$result = true;
 
 **Equivalent Helper Function:**
 
@@ -275,11 +303,13 @@ Return the length of the given string.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::length('Laravel is really awesome')}}
+	$str = 'Laravel is really awesome';
+	
+	$length = Str::length($str);
 	
 **Result:**
 	
-	25
+	$length = 25;
 	
 ## limit()
 
@@ -293,31 +323,37 @@ Limit the number of characters in a string.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::limit('Laravel is really awesome')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::limit($str1);
 	
 **Result:**
 	
-	'Laravel is really awesome'
+	$str2 = 'Laravel is really awesome';
 	
 **Example 2:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::limit('Laravel is really awesome', 7)}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::limit($str1, 7);
 	
 **Result:**
 	
-	'Laravel...'
+	$str2 = 'Laravel...';
 	
 **Example 3:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::limit('Laravel is really awesome', 7, '!!!')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::limit($str1, 7, '!!!');
 	
 **Result:**
 	
-	'Laravel!!!'
+	$str2 = 'Laravel!!!';
 	
 **Equivalent Helper Function:**
 
@@ -334,84 +370,13 @@ Convert the given string to lower-case.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::lower('Laravel is really awesome')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::lower($str1);
 	
 **Result:**
 	
-	'laravel is really awesome'
-	
-## words()
-
-Limit the number of words in a string.
-
-**Method:**
-	
-	public static function words($value, $words = 100, $end = '...');	
-**Example 1:**
-
-	use Illuminate\Support\Str;
-	
-	{{Str::words('Laravel is really awesome')}}
-	
-**Result:**
-	
-	'Laravel is really awesome'
-	
-**Example 2:**
-
-	use Illuminate\Support\Str;
-	
-	{{Str::words('Laravel is really awesome', 3)}}
-	
-**Result:**
-	
-	'Laravel is really...'
-	
-**Example 3:**
-
-	use Illuminate\Support\Str;
-	
-	{{Str::words('Laravel is really awesome', 2, '###')}}
-	
-**Result:**
-	
-	'Laravel is###'
-	
-**Notes:**
-
-Very useful to provide an introductory part of your content.
-	
-## parseCallback()
-
-Parse a Class@method style callback into class and method.
-
-**Method:**
-
-	public static function parseCallback($callback, $default);
-	
-**Example 1:**
-	
-	use Illuminate\Support\Str;
-	
-	{{Str::parseCallback('Test@tester', 1)}}
-	
-**Result:**
-
-	['Test', 'tester']
-	
-**Example 2:**
-	
-	use Illuminate\Support\Str;
-	
-	{{Str::parseCallback('Test', 1)}}
-	
-**Result:**
-
-	['Test', 1]
-	
-**Notes:**
-
-In case you refer to a class and its method like `Class@method` then with this method you can fast distinguish the class from its method and have an array with their names. If there is no `@` then the value of the callback is used as the name of the method in the array.
+	$str2 = 'laravel is really awesome';
 
 ## plural()
 
@@ -425,31 +390,37 @@ Get the plural form of an English word.
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::plural('test')}}
+	$str1 = 'test';
+	
+	$str2 = Str::plural($str1);
 	
 **Result:**
 
-	'tests'
+	$str2 = 'tests';
 	
 **Example 2:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::plural('category')}}
+	$str1 = 'category';
+	
+	$str2 = Str::plural($str1);
 	
 **Result:**
 
-	'categories'
+	$str2 = 'categories';
 	
 **Example 3:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::plural('money')}}
+	$str1 = 'money';
+	
+	$str2 = Str::plural($str1);
 	
 **Result:**
 
-	'money'
+	$str2 = 'money';
 	
 **Equivalent Helper Function:**
 
@@ -467,21 +438,21 @@ Generate a more truly "random" alpha-numeric string.
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::random()}}
+	$random = Str::random();
 	
 **Result:**
 
-	'Q7EPToH8la5M0SDh' // 16 chars long random alphanumeric string
+	$random = 'Q7EPToH8la5M0SDh'; // 16 chars long random alphanumeric string
 	
 **Example 2:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::random(3)}}
+	$random = Str::random(3);
 	
 **Result:**
 
-	'w4G' // 3 chars long random alphanumeric string
+	$random = 'w4G'; // 3 chars long random alphanumeric string
 	
 **Equivalent Helper Function:**
 
@@ -489,7 +460,7 @@ Generate a more truly "random" alpha-numeric string.
 	
 **Notes:**
 
-Uses php 5.3.0 `openssl_random_pseudo_bytes ( int $length [, bool &$crypto_strong ] );` function to produce random strings. If we want a string strong and sufficient for cryptography this is the method we need.
+Uses php 5.3.0 `openssl_random_pseudo_bytes()` function to produce random strings. If we want a string strong and sufficient for cryptography this is the method we need.
 	
 ## quickRandom()
 
@@ -503,61 +474,25 @@ Generate a "random" alpha-numeric string.
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::quickRandom()}}
+	$random = Str::quickRandom();
 	
 **Result:**
 
-	'Q7EPToH8la5M0SDh' // 16 chars long random alphanumeric string
+	$random = 'Q7EPToH8la5M0SDh'; // 16 chars long random alphanumeric string
 	
 **Example 2:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::quickRandom(3)}}
+	$random = Str::quickRandom(3);
 	
 **Result:**
 
-	'w4G' // 3 chars long random alphanumeric string
+	$random = 'w4G'; // 3 chars long random alphanumeric string
 	
 **Notes:**
 
 Uses a pool which contains all alpha-numeric chars and picks some of them in random position to provide fast a random string. If we want a string sufficient for cryptography then we should use method `random()`.
-
-## upper()
-
-Convert the given string to upper-case.
-
-**Method:**
-
-	public static function upper($value);
-	
-**Example:**
-
-	use Illuminate\Support\Str;
-	
-	{{Str::upper('Laravel is really awesome')}}
-	
-**Result:**
-	
-	'LARAVEL IS REALLY AWESOME'
-	
-## title()
-
-Convert the given string to title case.
-
-**Method:**
-
-	public static function title($value);
-	
-**Example:**
-
-	use Illuminate\Support\Str;
-	
-	{{Str::title('Laravel is really awesome')}}
-	
-**Result:**
-	
-	'Laravel Is Really Awesome'
 	
 ## singular()
 
@@ -571,31 +506,37 @@ Get the singular form of an English word.
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::singular('tests')}}
+	$str1 = 'tests;
+	
+	$str2 = Str::singular($str1);
 	
 **Result:**
 
-	'test'
+	$str2 = 'test';
 	
 **Example 2:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::singular('categories')}}
+	$str1 = 'categories;
+	
+	$str2 = Str::singular($str1);
 	
 **Result:**
 
-	'category'
+	$str2 = 'category';
 	
 **Example 3:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::singular('money')}}
+	$str1 = 'money;
+	
+	$str2 = Str::singular($str1);
 	
 **Result:**
 
-	'money'
+	$str2 = 'money';
 	
 **Equivalent Helper Function:**
 
@@ -613,21 +554,25 @@ Get the singular form of an English word.
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::slug('Laravel is really awesome')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::slug($str1);
 	
 **Result:**
 
-	'laravel-is-really-awesome'
+	$str2 = 'laravel-is-really-awesome';
 	
 **Example 2:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::slug('Laravel is really awesome', '_')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::slug($str1, '_');
 	
 **Result:**
 
-	'laravel_is_really_awesome'
+	$str2 = 'laravel_is_really_awesome';
 	
 **Equivalent Helper Function:**
 
@@ -639,7 +584,7 @@ A fast way to create SEF urls for your application.
 	
 ## snake()
 
-Convert a string to snake case.
+Convert a string from camel case format to snake case.
 
 **Method:**
 
@@ -649,25 +594,57 @@ Convert a string to snake case.
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::snake('Laravel is really awesome')}}
+	$str1 = 'LaravelRocks';
+	
+	$str2 = Str::snake($str1);
 	
 **Result:**
 
-	'laravel_is_really_awesome'
+	$str2 = 'laravel_rocks';
 	
 **Example 2:**
 	
 	use Illuminate\Support\Str;
 	
-	{{Str::slug('Laravel is really awesome', '-')}}
+	$str1 = 'Laravel Rocks';
+	
+	$str2 = Str::snake($str1);
 	
 **Result:**
 
-	'laravel-is-really-awesome'
+	$str2 = 'laravel _rocks';
+	
+**Example 3:**
+	
+	use Illuminate\Support\Str;
+	
+	$str1 = 'laravel rocks';
+	
+	$str2 = Str::snake($str1);
+	
+**Result:**
+
+	$str2 = 'laravel rocks';
+	
+**Example 4:**
+	
+	use Illuminate\Support\Str;
+	
+	$str1 = 'LaravelRocks';
+	
+	$str2 = Str::snake($str1, '-');
+	
+**Result:**
+
+	$str2 = 'laravel-rocks';
 	
 **Equivalent Helper Function:**
 
 	snake_case($value, $delimiter = '_');
+	
+**Notes:**
+
+Be careful this works great for camel case strings only and not for other formats, check examples 2 & 3.
 	
 ## startsWith()
 
@@ -684,31 +661,37 @@ The second parameter named $needles can be a string or an array of strings.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::startsWith('Laravel is really awesome', 'laravel')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::startsWith($str, 'laravel');
 	
 **Result:**
 	
-	false
+	$result = false;
 	
 **Example 2:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::startsWith('Laravel is really awesome', 'Laravel')}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::startsWith($str, 'Laravel');
 	
 **Result:**
 	
-	false
+	$result = true;
 	
 **Example 3:**
 
 	use Illuminate\Support\Str;
 	
-	{{Str::startsWith('Laravel is really awesome', ['Laravel', 'laravel'])}}
+	$str = 'Laravel is really awesome';
+	
+	$result = Str::startsWith($str, ['Laravel', 'laravel']);
 	
 **Result:**
 	
-	true
+	$result = true;
 	
 **Equivalent Helper Function:**
 
@@ -730,12 +713,101 @@ Convert a value to studly caps case.
 
 	use Illuminate\Support\Str;
 	
-	{{Str::studly('Laravel is really awesome')}}
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::studly($str1);
+	
+**Result:**
+	
+	$str2 = 'LaravelIsReallyAwesome';
 	
 **Equivalent Helper Function:**
 	
 	function studly_case($value);
 	
+## title()
+
+Convert the given string to title case.
+
+**Method:**
+
+	public static function title($value);
+	
+**Example:**
+
+	use Illuminate\Support\Str;
+	
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::title($str1);
+	
 **Result:**
 	
-	'LaravelIsReallyAwesome'
+	$str2 = 'Laravel Is Really Awesome';
+	
+## upper()
+
+Convert the given string to upper-case.
+
+**Method:**
+
+	public static function upper($value);
+	
+**Example:**
+
+	use Illuminate\Support\Str;
+	
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::upper($str1);
+	
+**Result:**
+	
+	$str2 = 'LARAVEL IS REALLY AWESOME';
+	
+## words()
+
+Limit the number of words in a string.
+
+**Method:**
+	
+	public static function words($value, $words = 100, $end = '...');	
+**Example 1:**
+
+	use Illuminate\Support\Str;
+	
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::words($str1);
+	
+**Result:**
+	
+	$str2 = 'Laravel is really awesome';
+	
+**Example 2:**
+
+	use Illuminate\Support\Str;
+	
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::words($str1, 3);
+	
+**Result:**
+	
+	$str2 = 'Laravel is really...';
+	
+**Example 3:**
+
+	use Illuminate\Support\Str;
+	
+	$str1 = 'Laravel is really awesome';
+	
+	$str2 = Str::words($str1, 2, '###');
+	
+**Result:**
+	
+	$str2 = 'Laravel is###';
+	
+**Notes:**
+
+Very useful to provide an introductory part of your content.
